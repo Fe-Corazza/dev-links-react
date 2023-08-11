@@ -3,11 +3,13 @@ import Profile from "../components/profile/profile";
 import Switch from "../components/switch/switch";
 import Links from "../components/links/links";
 import SocialLinks from "../components/socialLinks/socialLinks";
+import Footer from "../components/footer/footer";
 
 import "./App.css";
 
 import imgDarkMode from "../img/avatar.jpg";
 import imgLightMode from "../img/avatar-light.jpg";
+
 
 const App = () => {
   const [isLightMode, setIsLightMode] = useState(false);
@@ -18,7 +20,7 @@ const App = () => {
   return (
     <div id="container">
       <Profile imgSrc={imgSrc} imgAlt={imgAlt}>
-        @ProfCastello
+      @Fe_Corazza
       </Profile>
       <Switch></Switch>
       <div id="links">
@@ -26,7 +28,7 @@ const App = () => {
           <Links link={"https://github.com"}>GitHub</Links>
           <Links link={"#"}>Instagram</Links>
           <Links link={"#"}>Portifolio</Links>
-          <Links link={"#"}>Projetos</Links>
+          <Links link={"https://twitter.com/fe_corazza"}>Twitter</Links>
 
         </ul>
       </div>
@@ -37,6 +39,7 @@ const App = () => {
         <SocialLinks href={"#"} icon={"logo-twitter"} />
 
       </div>
+      <Footer link={"#"}>@Fe_Corazza</Footer>
     </div>
   );
 };
