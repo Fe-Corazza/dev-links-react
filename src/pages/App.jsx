@@ -10,36 +10,42 @@ import "./App.css";
 import imgDarkMode from "../img/avatar.jpg";
 import imgLightMode from "../img/avatar-light.jpg";
 
-
 const App = () => {
-  const [isLightMode, setIsLightMode] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(true);
+  const toggleMode = () => {
+    setIsLightMode((prevMode) => !prevMode);
+  };
 
   const imgSrc = isLightMode ? imgLightMode : imgDarkMode;
   const imgAlt = isLightMode ? "Imagem no modo Claro" : "Imagem no modo Escuro";
 
   return (
-    <div id="container">
-      <Profile imgSrc={imgSrc} imgAlt={imgAlt}>
-      @Fe_Corazza
-      </Profile>
-      <Switch></Switch>
-      <div id="links">
-        <ul>
-          <Links link={"https://github.com"}>GitHub</Links>
-          <Links link={"#"}>Instagram</Links>
-          <Links link={"#"}>Portifolio</Links>
-          <Links link={"https://twitter.com/fe_corazza"}>Twitter</Links>
-
-        </ul>
+    <div>
+      <div id="App" className={isLightMode ? "light" : ""}>
+        <div id="container"> 
+          <Profile imgSrc={imgSrc} imgAlt={imgAlt}>
+            @Fe_Corazza
+          </Profile>
+          <Switch mode={toggleMode} infoButton={isLightMode} />
+          <div id="links">
+            <ul>
+              <Links link={"https://github.com"}>GitHub</Links>
+              <Links link={"https://www.instagram.com/fe_corazza/"}>
+                Instagram
+              </Links>
+              <Links link={"https://www.tiktok.com/@fe_corazza"}>Tik Tok</Links>
+              <Links link={"https://twitter.com/fe_corazza"}>Twitter</Links>
+            </ul>
+          </div>
+          <div id="sociallinks">
+            <SocialLinks href={"#"} icon={"logo-github"} />
+            <SocialLinks href={"#"} icon={"logo-instagram"} />
+            <SocialLinks href={"#"} icon={"logo-tiktok"} />
+            <SocialLinks href={"#"} icon={"logo-twitter"} />
+          </div>
+          <Footer link={"#"}>@Fe_Corazza</Footer>
+        </div>
       </div>
-      <div id="sociallinks">
-        <SocialLinks href={"#"} icon={"logo-github"} />
-        <SocialLinks href={"#"} icon={"logo-instagram"} />
-        <SocialLinks href={"#"} icon={"logo-tiktok"} />
-        <SocialLinks href={"#"} icon={"logo-twitter"} />
-
-      </div>
-      <Footer link={"#"}>@Fe_Corazza</Footer>
     </div>
   );
 };
